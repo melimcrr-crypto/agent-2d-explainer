@@ -1,0 +1,11 @@
+# --- animation engine (MIT, pure-Python vector renderer) ---
+manim==0.22.0
+# --- assets / audio ---
+edge-tts>=7.0.0
+numpy>=1.26
+Pillow>=10.0
+# --- RTL helpers for the optional ASS/SRT export ---
+arabic-reshaper>=3.0
+python-bidi>=0.6
+# --- bundled ffmpeg/ffprobe for machines without a system build ---
+static-ffmpeg>=2.5

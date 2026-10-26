@@ -1,0 +1,35 @@
+[Script Info]
+Title: Housha - How an AI Agent Edits a Video (Persian, RTL)
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Vazirmatn,58,&H00FFFFFF,&H00B8A08A,&H00101520,&H90000000,-1,0,0,0,100,100,0,0,1,3.4,1.6,2,110,110,74,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.41,0:00:03.36,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf31}سلام {\kf84}{\kf6}من {\kf8}{\kf25}هوشا {\kf32}هستم {\kf75}{\kf5}تو {\kf3}{\kf10}این {\kf2}{\kf12}یک
+Dialogue: 0,0:00:03.38,0:00:05.55,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf28}دقیقه {\kf24}میگم {\kf4}{\kf13}یک {\kf2}{\kf39}ایجنت {\kf38}هوشمند {\kf32}چطوری {\kf36}ویدیوی
+Dialogue: 0,0:00:05.57,0:00:06.99,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf19}خام {\kf6}رو {\kf32}تدوین {\kf30}میکنه
+Dialogue: 0,0:00:08.41,0:00:11.64,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf40}مرحله {\kf7}{\kf32}اول {\kf2}{\kf19}گوش {\kf2}{\kf47}کردنه {\kf94}{\kf37}ویسپر {\kf6}{\kf28}صدا {\kf2}{\kf8}رو
+Dialogue: 0,0:00:11.66,0:00:13.87,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf46}رونویسی {\kf35}میکنه {\kf2}{\kf8}به {\kf18}هر {\kf2}{\kf38}کلمه {\kf35}زمان {\kf2}{\kf32}دقیق
+Dialogue: 0,0:00:13.89,0:00:15.63,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf24}میده {\kf5}و {\kf5}{\kf48}سکوتها {\kf4}و {\kf5}{\kf44}تپقها {\kf8}رو {\kf28}پیدا
+Dialogue: 0,0:00:15.65,0:00:16.54,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf37}میکنه
+Dialogue: 0,0:00:18.43,0:00:22.05,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf40}مرحله {\kf8}{\kf27}دوم {\kf4}{\kf77}تصمیم‌گیریه {\kf96}{\kf26}مدل {\kf6}{\kf38}زبان {\kf32}متن {\kf5}و
+Dialogue: 0,0:00:22.07,0:00:23.89,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf39}شاتها {\kf9}رو {\kf41}میخونه {\kf4}{\kf8}و {\kf5}{\kf19}یک {\kf2}{\kf25}لیست {\kf29}برش
+Dialogue: 0,0:00:23.91,0:00:26.24,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf47}مینویسه {\kf27}{\kf29}کدوم {\kf2}{\kf37}تیکهها {\kf38}بمونن {\kf2}{\kf6}و {\kf2}{\kf17}هر {\kf4}{\kf21}کات
+Dialogue: 0,0:00:26.26,0:00:27.36,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf26}کجا {\kf2}{\kf29}باشه
+Dialogue: 0,0:00:30.43,0:00:33.97,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf40}مرحله {\kf7}{\kf32}سوم {\kf4}{\kf42}رندره {\kf93}{\kf58}افافامپگ {\kf5}{\kf4}و {\kf5}{\kf50}ریموشن {\kf16}اون
+Dialogue: 0,0:00:33.99,0:00:35.54,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf24}لیست {\kf8}رو {\kf11}به {\kf33}فریم {\kf38}تبدیل {\kf40}میکنن؛
+Dialogue: 0,0:00:35.56,0:00:38.31,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf60}ترنزیشن {\kf4}{\kf57}زیرنویس {\kf55}متحرک {\kf4}{\kf5}و {\kf5}{\kf44}موسیقی {\kf2}{\kf14}هم {\kf4}{\kf25}اینجا
+Dialogue: 0,0:00:38.34,0:00:39.50,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf34}ساخته {\kf29}میشن
+Dialogue: 0,0:00:42.41,0:00:46.01,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf40}مرحله {\kf5}{\kf37}چهارم {\kf2}{\kf57}بازبینیه {\kf93}{\kf42}ایجنت {\kf2}{\kf40}خروجی {\kf2}{\kf9}رو {\kf31}پروب
+Dialogue: 0,0:00:46.03,0:00:48.24,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf37}میکنه {\kf42}فریمها {\kf9}رو {\kf35}نگاه {\kf37}میکنه {\kf5}و {\kf5}{\kf47}بلندی
+Dialogue: 0,0:00:48.26,0:00:50.15,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf29}صدا {\kf2}{\kf7}رو {\kf59}استاندارد {\kf37}میکنه
+Dialogue: 0,0:00:52.41,0:00:55.21,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf26}چهار {\kf5}{\kf39}مرحله {\kf42}داشتیم {\kf8}{\kf22}گوش {\kf2}{\kf32}کردن {\kf4}{\kf61}تصمیم‌گیری {\kf4}{\kf33}رندر
+Dialogue: 0,0:00:55.23,0:00:58.72,Default,,0,0,0,,{\fad(150,150)}{\kf10}{\kf4}و {\kf52}بازبینی {\kf92}{\kf31}همه‌اش {\kf7}{\kf12}با {\kf2}{\kf22}کد {\kf2}{\kf20}روی {\kf51}گیت‌هاب

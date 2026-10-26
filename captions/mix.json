@@ -1,0 +1,44 @@
+[
+  {
+    "file": "assets/audio/voice_00_intro.mp3",
+    "at": 0.38,
+    "duration": 6.96,
+    "scene": "intro",
+    "rate": "+22%"
+  },
+  {
+    "file": "assets/audio/voice_01_listen.mp3",
+    "at": 8.38,
+    "duration": 8.592,
+    "scene": "listen",
+    "rate": "+6%"
+  },
+  {
+    "file": "assets/audio/voice_02_plan.mp3",
+    "at": 18.38,
+    "duration": 9.432,
+    "scene": "plan",
+    "rate": "+6%"
+  },
+  {
+    "file": "assets/audio/voice_03_render.mp3",
+    "at": 30.38,
+    "duration": 9.552,
+    "scene": "render",
+    "rate": "+6%"
+  },
+  {
+    "file": "assets/audio/voice_04_review.mp3",
+    "at": 42.38,
+    "duration": 8.208,
+    "scene": "review",
+    "rate": "+6%"
+  },
+  {
+    "file": "assets/audio/voice_05_outro.mp3",
+    "at": 52.38,
+    "duration": 6.792,
+    "scene": "outro",
+    "rate": "+6%"
+  }
+]

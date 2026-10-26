@@ -1,0 +1,219 @@
+{
+  "file": "explainer-1080p.mp4",
+  "duration": 60.0,
+  "size_bytes": 6030141,
+  "video": {
+    "codec_name": "h264",
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "30/1",
+    "pix_fmt": "yuv420p",
+    "nb_frames": "1800"
+  },
+  "audio": [
+    {
+      "codec_name": "aac",
+      "sample_rate": "48000",
+      "channels": 2
+    }
+  ],
+  "loudness": {
+    "input_i": -14.84,
+    "input_tp": -0.99,
+    "input_lra": "5.90",
+    "input_thresh": "-25.54"
+  },
+  "checks": [
+    {
+      "check": "duration",
+      "status": "PASS",
+      "value": 60.0,
+      "expected": "60.0 +/- 0.20 s"
+    },
+    {
+      "check": "resolution",
+      "status": "PASS",
+      "value": "1920x1080",
+      "expected": "854x480 (preview) / 1280x720 / 1920x1080"
+    },
+    {
+      "check": "fps",
+      "status": "PASS",
+      "value": "30/1",
+      "expected": "30"
+    },
+    {
+      "check": "video codec",
+      "status": "PASS",
+      "value": "h264",
+      "expected": "h264"
+    },
+    {
+      "check": "pixel format",
+      "status": "PASS",
+      "value": "yuv420p",
+      "expected": "yuv420p"
+    },
+    {
+      "check": "audio stream",
+      "status": "PASS",
+      "value": 1,
+      "expected": ">= 1"
+    },
+    {
+      "check": "audio codec",
+      "status": "PASS",
+      "value": "aac",
+      "expected": "aac"
+    },
+    {
+      "check": "integrated loudness",
+      "status": "PASS",
+      "value": -14.84,
+      "expected": "-14 LUFS +/- 1.5"
+    },
+    {
+      "check": "true peak",
+      "status": "PASS",
+      "value": -0.99,
+      "expected": "<= -0.8 dBTP"
+    }
+  ],
+  "ffmpeg_skill": {
+    "tool": "kajisho5/ffmpeg-skill check.py",
+    "exit": 0,
+    "report": {
+      "status": "completed",
+      "output": null,
+      "dry_run": false,
+      "verified": false,
+      "commands": 1,
+      "platform": "youtube",
+      "checks": [
+        {
+          "check": "duration",
+          "status": "PASS",
+          "value": "60.00s",
+          "expected": "<= 43200s",
+          "fix": "decide with the user: cut.py keeps quality but drops content; fit.py --duration speeds up (audio pitch-preserved, motion faster)",
+          "reason": "",
+          "kind": "judgement"
+        },
+        {
+          "check": "aspect",
+          "status": "PASS",
+          "value": "16:9",
+          "expected": "16:9/9:16/1:1/4:3",
+          "fix": "fit.py --aspect 16:9 --fit pad (keeps everything, adds bars) or crop (fills the frame, loses the edges: check the subject with look.py)",
+          "reason": "",
+          "kind": "judgement"
+        },
+        {
+          "check": "resolution",
+          "status": "PASS",
+          "value": "1920x1080",
+          "expected": "short side >= 720",
+          "fix": "upscaling will not add detail; re-export from the master",
+          "reason": "",
+          "kind": "judgement"
+        },
+        {
+          "check": "fps",
+          "status": "PASS",
+          "value": "30",
+          "expected": "<= 60",
+          "fix": "fit.py --fps 30 (drops half the frames of 60 fps motion; fine for talking heads, visible on sports/gaming)",
+          "reason": "",
+          "kind": "judgement"
+        },
+        {
+          "check": "vfr",
+          "status": "PASS",
+          "value": "constant",
+          "expected": "constant",
+          "fix": "fit.py --fps N (any re-encode conforms it)",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "video codec",
+          "status": "PASS",
+          "value": "h264",
+          "expected": "h264/hevc/prores/av1/vp9",
+          "fix": "export.py --preset youtube",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "colour",
+          "status": "PASS",
+          "value": "untagged (players assume bt709)",
+          "expected": "bt709/bt709 tagged (or HDR)",
+          "fix": "",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "file size",
+          "status": "PASS",
+          "value": "5.8 MB",
+          "expected": "<= 262144 MB",
+          "fix": "export.py --crf 24 or lower resolution",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "audio",
+          "status": "PASS",
+          "value": "aac 2ch 48000Hz",
+          "expected": "present",
+          "fix": "",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "subtitles",
+          "status": "PASS",
+          "value": "1 (fas)",
+          "expected": "every track tagged with its language",
+          "fix": "",
+          "reason": "",
+          "kind": "format"
+        },
+        {
+          "check": "loudness",
+          "status": "PASS",
+          "value": "-14.8 LUFS",
+          "expected": "-14 ± 2 LUFS",
+          "fix": "loudness.py -I -14 for speech or music; leave ambience/near-silence (<= -40 LUFS) alone and say so",
+          "reason": "",
+          "kind": "judgement"
+        },
+        {
+          "check": "true peak",
+          "status": "PASS",
+          "value": "-1.0 dBTP",
+          "expected": "<= -1 dBTP",
+          "fix": "loudness.py --tp -1",
+          "reason": "",
+          "kind": "judgement"
+        }
+      ],
+      "failed": 0,
+      "warnings": 0,
+      "ok": true
+    },
+    "human": "/home/user/agent-2d-explainer/rendered/explainer-1080p.mp4 — youtube\n  PASS duration     60.00s  (expected <= 43200s)\n  PASS aspect       16:9  (expected 16:9/9:16/1:1/4:3)\n  PASS resolution   1920x1080  (expected short side >= 720)\n  PASS fps          30  (expected <= 60)\n  PASS vfr          constant  (expected constant)\n  PASS video codec  h264  (expected h264/hevc/prores/av1/vp9)\n  PASS colour       untagged (players assume bt709)  (expected bt709/bt709 tagged (or HDR))\n  PASS file size    5.8 MB  (expected <= 262144 MB)\n  PASS audio        aac 2ch 48000Hz  (expected present)\n  PASS subtitles    1 (fas)  (expected every track tagged with its language)\n  PASS loudness     -14.8 LUFS  (expected -14 ± 2 LUFS)\n  PASS true peak    -1.0 dBTP  (expected <= -1 dBTP)\n  12 checks, 0 failed, 0 warnings",
+    "stderr": ""
+  },
+  "deliverables": [
+    "caption-check.png",
+    "contact-sheet.png",
+    "explainer-1080p.mp4",
+    "explainer-720p.mp4",
+    "explainer-vertical.mp4",
+    "explainer.srt",
+    "preview.gif",
+    "qa.json"
+  ]
+}

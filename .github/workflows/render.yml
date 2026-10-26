@@ -1,0 +1,103 @@
+name: render 2D explainer
+
+on:
+  push:
+    branches: [main]
+    # the bot commits rendered/ back; ignore it so we don't loop forever
+    paths-ignore:
+      - 'rendered/**'
+      - 'docs/**'
+      - '*.md'
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * 1'   # weekly freshness render (Monday 05:23 UTC)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: System dependencies (Cairo/Pango + FFmpeg + Vazirmatn)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg libcairo2-dev libpango1.0-dev libpangocairo-1.0-0 \
+            libglib2.0-dev libffi-dev pkg-config fontconfig
+          sudo mkdir -p /usr/share/fonts/truetype/vazirmatn
+          sudo cp assets/fonts/Vazirmatn-*.ttf /usr/share/fonts/truetype/vazirmatn/
+          sudo fc-cache -f
+          fc-list | grep -i vazirmatn | head -3
+          ffmpeg -version | head -1
+
+      - name: Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Ubuntu's FFmpeg has libass but not always HarfBuzz; pin the static
+      # build so `ass=...:shaping=complex` really does complex RTL shaping.
+      - name: Pin HarfBuzz-enabled FFmpeg
+        run: |
+          python -c "from static_ffmpeg import run; import os; f,p=run.get_or_fetch_platform_executables_else_raise(); open(os.environ['GITHUB_ENV'],'a').write('FFMPEG_BIN='+f+'\nFFPROBE_BIN='+p+'\n')"
+          echo "FFMPEG_BIN=$FFMPEG_BIN"
+
+      - name: Install the delivery-gate tool (ffmpeg-skill)
+        run: |
+          mkdir -p build
+          git clone --depth 1 https://github.com/kajisho5/ffmpeg-skill.git build/ffmpeg-skill || true
+
+      - name: Render (Manim -> FFmpeg edit -> QA)
+        run: python tools/render.py --quality h --fps 30
+
+      - name: Upload all deliverables as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: housha-explainer
+          path: rendered/
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish the MP4 back into the repo (plays inline on GitHub)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name  "housha-render-bot"
+          git config user.email "housha-render-bot@users.noreply.github.com"
+          git add -f rendered/
+          if git diff --cached --quiet; then
+            echo "render is byte-identical; nothing to commit"
+          else
+            git commit -m "chore(render): rebuild 60s 2D explainer [skip ci]"
+            git push
+          fi
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Housha — 60s 2D explainer"
+            echo ""
+            echo "| file | bytes |"
+            echo "| --- | --- |"
+            for f in rendered/*; do [ -f "$f" ] && echo "| $(basename "$f") | $(stat -c%s "$f") |"; done
+            echo ""
+            echo '```json'
+            [ -f rendered/qa.json ] && cat rendered/qa.json || echo '{}'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

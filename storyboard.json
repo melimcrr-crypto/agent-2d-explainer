@@ -1,0 +1,82 @@
+{
+  "schema": "agent-2d-explainer/storyboard@1",
+  "title_fa": "چطور یک ایجنت هوشمند ویدیو تدوین می‌کند؟",
+  "title_en": "How an AI Agent Edits a Video",
+  "language": "fa",
+  "voice": "fa-IR-DilaraNeural",
+  "voice_rate": "+6%",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 60.0,
+  "character": {
+    "name": "هوشا",
+    "name_en": "Housha"
+  },
+  "palette": {
+    "bg": "#0B1220",
+    "panel": "#141F32",
+    "cyan": "#4CC2FF",
+    "violet": "#8B7CFF",
+    "amber": "#FFB86B",
+    "green": "#5CE1A6",
+    "ink": "#EAF2FA",
+    "muted": "#8AA0B8"
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "start": 0.0,
+      "duration": 8.0,
+      "kind": "intro",
+      "title": "چطور یک ایجنت هوشمند ویدیو تدوین می‌کند؟",
+      "kicker": "یک توضیح ۶۰ ثانیه‌ای",
+      "narration": "سلام! من هوشا هستم. تو این یک دقیقه میگم یک ایجنت هوشمند چطوری ویدیوی خام رو تدوین میکنه."
+    },
+    {
+      "id": "listen",
+      "start": 8.0,
+      "duration": 10.0,
+      "kind": "waveform",
+      "title": "مرحله ۱ — گوش کردن",
+      "kicker": "faster-whisper · word timestamps",
+      "narration": "مرحله اول، گوش کردنه. ویسپر صدا رو رونویسی میکنه، به هر کلمه زمان دقیق میده، و سکوتها و تپقها رو پیدا میکنه."
+    },
+    {
+      "id": "plan",
+      "start": 18.0,
+      "duration": 12.0,
+      "kind": "edl",
+      "title": "مرحله ۲ — تصمیم‌گیری",
+      "kicker": "LLM → EDL (edl.json)",
+      "narration": "مرحله دوم، تصمیم‌گیریه. مدل زبان متن و شاتها رو میخونه و یک لیست برش مینویسه: کدوم تیکهها بمونن و هر کات کجا باشه."
+    },
+    {
+      "id": "render",
+      "start": 30.0,
+      "duration": 12.0,
+      "kind": "timeline",
+      "title": "مرحله ۳ — رندر",
+      "kicker": "FFmpeg · Remotion · motion graphics",
+      "narration": "مرحله سوم، رندره. افافامپگ و ریموشن اون لیست رو به فریم تبدیل میکنن؛ ترنزیشن، زیرنویس متحرک و موسیقی هم اینجا ساخته میشن."
+    },
+    {
+      "id": "review",
+      "start": 42.0,
+      "duration": 10.0,
+      "kind": "checklist",
+      "title": "مرحله ۴ — بازبینی",
+      "kicker": "ffprobe · contact sheet · -14 LUFS",
+      "narration": "مرحله چهارم، بازبینیه. ایجنت خروجی رو پروب میکنه، فریمها رو نگاه میکنه و بلندی صدا رو استاندارد میکنه."
+    },
+    {
+      "id": "outro",
+      "start": 52.0,
+      "duration": 8.0,
+      "kind": "outro",
+      "title": "چهار مرحله، یک خط لوله",
+      "kicker": "همه‌اش با کد، روی گیت‌هاب",
+      "narration": "چهار مرحله داشتیم: گوش کردن، تصمیم‌گیری، رندر و بازبینی. همه‌اش با کد، روی گیت‌هاب!"
+    }
+  ]
+}
