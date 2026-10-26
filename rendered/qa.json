@@ -1,7 +1,7 @@
 {
   "file": "explainer-1080p.mp4",
   "duration": 60.0,
-  "size_bytes": 6030141,
+  "size_bytes": 6052350,
   "video": {
     "codec_name": "h264",
     "width": 1920,
@@ -203,7 +203,7 @@
       "warnings": 0,
       "ok": true
     },
-    "human": "/home/user/agent-2d-explainer/rendered/explainer-1080p.mp4 — youtube\n  PASS duration     60.00s  (expected <= 43200s)\n  PASS aspect       16:9  (expected 16:9/9:16/1:1/4:3)\n  PASS resolution   1920x1080  (expected short side >= 720)\n  PASS fps          30  (expected <= 60)\n  PASS vfr          constant  (expected constant)\n  PASS video codec  h264  (expected h264/hevc/prores/av1/vp9)\n  PASS colour       untagged (players assume bt709)  (expected bt709/bt709 tagged (or HDR))\n  PASS file size    5.8 MB  (expected <= 262144 MB)\n  PASS audio        aac 2ch 48000Hz  (expected present)\n  PASS subtitles    1 (fas)  (expected every track tagged with its language)\n  PASS loudness     -14.8 LUFS  (expected -14 ± 2 LUFS)\n  PASS true peak    -1.0 dBTP  (expected <= -1 dBTP)\n  12 checks, 0 failed, 0 warnings",
+    "human": "/home/runner/work/agent-2d-explainer/agent-2d-explainer/rendered/explainer-1080p.mp4 — youtube\n  PASS duration     60.00s  (expected <= 43200s)\n  PASS aspect       16:9  (expected 16:9/9:16/1:1/4:3)\n  PASS resolution   1920x1080  (expected short side >= 720)\n  PASS fps          30  (expected <= 60)\n  PASS vfr          constant  (expected constant)\n  PASS video codec  h264  (expected h264/hevc/prores/av1/vp9)\n  PASS colour       untagged (players assume bt709)  (expected bt709/bt709 tagged (or HDR))\n  PASS file size    5.8 MB  (expected <= 262144 MB)\n  PASS audio        aac 2ch 48000Hz  (expected present)\n  PASS subtitles    1 (fas)  (expected every track tagged with its language)\n  PASS loudness     -14.8 LUFS  (expected -14 ± 2 LUFS)\n  PASS true peak    -1.0 dBTP  (expected <= -1 dBTP)\n  12 checks, 0 failed, 0 warnings",
     "stderr": ""
   },
   "deliverables": [
