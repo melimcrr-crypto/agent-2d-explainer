@@ -16,3 +16,6 @@ tmp/
 .DS_Store
 .env
 *.token
+
+# scratch
+*.scratch
